@@ -5,6 +5,19 @@ namespace MvvmHelpers
     /// </summary>
     public class BaseViewModel : ObservableObject
     {
+
+		string otherTitle = string.Empty;
+
+		/// <summary>
+		/// Gets or sets the title.
+		/// </summary>
+		/// <value>The title.</value>
+		public string OtherTitle
+		{
+			get { return otherTitle; }
+			set { SetProperty(ref otherTitle, value); }
+		}
+
         string title = string.Empty;
 
         /// <summary>
