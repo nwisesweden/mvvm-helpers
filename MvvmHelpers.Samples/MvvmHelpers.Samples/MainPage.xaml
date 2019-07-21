@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MvvmHelpers.Samples"
+             mc:Ignorable="d"
+             x:Class="MvvmHelpers.Samples.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout Padding="40">
+        <Entry Placeholder="Enter a name" Text="{Binding Name.Value}" />
+        <Label Text="{Binding Name.Value}"/>
+
+        <Button Text="{Binding CountLabel.Value}" Command="{Binding IncreaseCountCommand}"/>
+    </StackLayout>
+
+</ContentPage>
