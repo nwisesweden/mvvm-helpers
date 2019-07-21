@@ -19,8 +19,8 @@ namespace MvvmHelpers.Samples
 
         private void ExecuteIncreaseCommand()
         {
-            Count.Value++;
-            CountLabel.Value = $"You clicked {Count.Value} times.";
+            Count.State++;
+            CountLabel.State = $"You clicked {Count.State} times.";
         }
     }
 }

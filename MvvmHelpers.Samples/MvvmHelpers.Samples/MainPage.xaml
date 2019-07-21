@@ -10,10 +10,10 @@
         <local:MainViewModel/>
     </ContentPage.BindingContext>
     <StackLayout Padding="40">
-        <Entry Placeholder="Enter a name" Text="{Binding Name.Value}" />
-        <Label Text="{Binding Name.Value}"/>
+        <Entry Placeholder="Enter a name" Text="{Binding Name.State}" />
+        <Label Text="{Binding Name.State}"/>
 
-        <Button Text="{Binding CountLabel.Value}" Command="{Binding IncreaseCountCommand}"/>
+        <Button Text="{Binding CountLabel.State}" Command="{Binding IncreaseCountCommand}"/>
     </StackLayout>
 
 </ContentPage>

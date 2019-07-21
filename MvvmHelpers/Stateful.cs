@@ -11,28 +11,16 @@ namespace MvvmHelpers
     public class Stateful<T> : ObservableObject
     {
         public Stateful() =>
-            backing = default;
+            state = default;
 
-        public Stateful(T defaultValue) =>
-            backing = defaultValue;
+        public Stateful(T state) =>
+            this.state = state;
 
-        T backing;
-        public T Value
+        T state;
+        public T State
         {
-            get => backing;
-            set => SetProperty(ref backing, value);
-        }
-    }
-
-    public class MyViewModel
-    {
-        public Stateful<int> Count { get; } = new Stateful<int>(1);
-
-        public void CountUp()
-        {
-            var current = Count.Value;
-
-            Count.Value = current + 1;
+            get => state;
+            set => SetProperty(ref state, value);
         }
     }
 }
