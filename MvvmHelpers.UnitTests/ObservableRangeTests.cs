@@ -1,12 +1,32 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 
 namespace MvvmHelpers.UnitTests
 {
 	[TestClass]
 	public class ObservableRangeTests
-	{		
+	{
+		[TestMethod]
+		public void AddRange_EnumerateObjectsNotAlreadyInCollection_PopulationOfItemsAddedShouldSucceed()
+		{
+			var collection = new ObservableRangeCollection<object>();
+
+			// Define IEnumerable that references collection.
+			var toAdd = Enumerable.Repeat(new object(), 3).Where(item => !collection.Contains(item));
+			var expected = toAdd.Count();
+
+			// Verify that new items are identified in event handler.
+			collection.CollectionChanged += (s, e) =>
+			{
+				var actual = e.NewItems.Count;
+				Assert.AreEqual(expected, actual);
+			};
+
+			collection.AddRange(toAdd);
+		}
+
 		[TestMethod]
 		public void AddRange()
 		{
